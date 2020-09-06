@@ -1,0 +1,54 @@
+from scapy.all import *
+
+import time
+
+
+
+	
+
+z = 1
+
+tercih = int(input("1-Hizli\n2-Orta\n3-Yavas\n4-Cok Yavas\n5-Cok Hizli\nTarama Seçeneğiniz Nedir? "))
+while z != 255:
+#1'den 255 kadar ip araligi belirlendi.
+	x="10.0.2."  #!!!kendi ip araliginiza gore belirlemelisiniz!!
+	asd=[]
+	for i in x.split("."):
+	    asd.append(i)
+	
+	
+	
+	a = str(z)
+	y = asd[0] +"." +  asd[1] + "." + asd[2] + "." + a
+	print(y + "   PAKET GONDERIRILIYOR..")
+	x = y
+	
+	
+	
+	
+	
+	etherbaslik = Ether(src="11:22:33:44:55:66",dst="ff:ff:ff:ff:ff:ff")
+	arpbaslik = ARP(op=1,hwsrc="11:22:33:44:55:66",psrc="10.0.2.37",pdst=x,hwdst="00:00:00:00:00:00")
+
+#op kodunu 2 yaparak belirli bir ip'yi sürekli ağda bu ip bu mac adresine sahip diye soyletebilirisiniz.
+#bu sekilde agda'ki cihazlar belirttiginizi ip adresini belirttiginiz mac adresi gibi arp tablosuna kayit edecek.
+
+	paket = etherbaslik / arpbaslik
+	if tercih == 1:
+		time.sleep(3)
+	elif tercih == 2:
+		time.sleep(5)
+	elif tercih == 3:
+		time.sleep(7)
+	elif tercih == 4:
+		time.sleep(10)
+	elif tercih == 5:
+		pass
+	else:
+		print("!!!!HATA!!!!")
+		break
+	sendp(paket)
+	z +=1
+
+
+
