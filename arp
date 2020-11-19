@@ -30,7 +30,7 @@ while z != 255:
 	etherbaslik = Ether(src="11:22:33:44:55:66",dst="ff:ff:ff:ff:ff:ff")
 	arpbaslik = ARP(op=1,hwsrc="11:22:33:44:55:66",psrc="10.0.2.37",pdst=x,hwdst="00:00:00:00:00:00")
 
-#op kodunu 2 yaparak belirli bir ip'yi sürekli ağda bu ip bu mac adresine sahip diye soyletebilirisiniz.
+#op  kodunu 2 yaparak belirli bir ip'yi sürekli ağda bu ip bu mac adresine sahip diye soyletebilirisiniz.
 #bu sekilde agda'ki cihazlar belirttiginizi ip adresini belirttiginiz mac adresi gibi arp tablosuna kayit edecek.
 
 	paket = etherbaslik / arpbaslik
